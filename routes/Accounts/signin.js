@@ -8,7 +8,7 @@ const Admin = require("../../models/Admin/Admin.js");
 
 const router = express.Router();
 
-router.post('/',async(req,res)=>{
+router.post('/',async(req,res,next)=>{
 	const payload = req.body; //gets payload
 	console.log(payload);
 
@@ -21,9 +21,12 @@ router.post('/',async(req,res)=>{
 		return res.status(201).send("Contact admin, as your account does not exist")
 	
 	try{
-		if(bcrypt.compareSync(payload.user_password, admin_result.user_password)){
+		const compare = bcrypt.compareSync(payload.user_password,admin_result.user_password)
+		console.log(compare)
+		if(compare){
 			const id = admin_result._id
 			const user_name = admin_result.user_name
+
 			const token = jwt.sign(
 				{user_name,id},
 				process.env.TOKEN_ADMIN_KEY,
@@ -39,10 +42,11 @@ router.post('/',async(req,res)=>{
 	        const options = { };
 	        
 	        await Admin.updateOne( query, update, options).then((response)=>{
-				return res.status(200).send(token);
+				return res.status(200).send(token)
 			})
+		}else{
+			return res.status(201).send("wrong credentials, try again");	
 		}
-		return res.status(201).send("wrong credentials, try again");
 	}catch(err){
 		console.log(err)
 		return res.status(500).send("Error while signing in");

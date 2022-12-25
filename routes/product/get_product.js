@@ -3,7 +3,7 @@ const Product = require("../../models/Utils/Product.js");
 
 let router = express.Router()
 
-router.get('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     //get payload
     const  payload  = req.body;
 
@@ -15,7 +15,7 @@ router.get('/',async(req,res)=>{
 
     try{
         const product = await Product.findOne({_id:id});
-        return res.status(200).json(product)
+        return res.status(200).send(product)
     }catch(err){
         console.log(err);
         return res.status(500).send("Error while fetching product")

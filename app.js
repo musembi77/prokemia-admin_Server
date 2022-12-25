@@ -17,6 +17,7 @@ const signin = require("./routes/Accounts/signin.js");
 const get_client_account = require("./routes/Accounts/Admin/clients/get_client.js");
 const get_client_accounts = require("./routes/Accounts/Admin/clients/get_clients.js");
 const suspend_client_account = require("./routes/Accounts/Admin/clients/suspend_client_account.js");
+const un_suspend_client_account = require("./routes/Accounts/Admin/clients/un_suspend_client_account.js");
 // const get_product = require("./routes/Accounts/client_account/get_products.js");
 
 //distributor
@@ -25,12 +26,14 @@ const get_distributor_account = require("./routes/Accounts/Admin/distributors/ge
 const get_distributor_accounts = require("./routes/Accounts/Admin/distributors/get_distributors");
 const suspend_distributor_account = require("./routes/Accounts/Admin/distributors/suspend_distributor_account.js");
 const decline_distributor_account = require("./routes/Accounts/Admin/distributors/decline_distributor.js");
+const un_suspend_distributor_account = require("./routes/Accounts/Admin/distributors/un_suspend_distributor_account.js");
 
 //manufacturer
 const approve_manufacturer_account = require("./routes/Accounts/Admin/manufacturers/approve_manufacturer.js");
 const get_manufacturer_account = require("./routes/Accounts/Admin/manufacturers/get_manufacturer.js");
 const get_manufacturer_accounts = require("./routes/Accounts/Admin/manufacturers/get_manufacturers");
 const suspend_manufacturer_account = require("./routes/Accounts/Admin/manufacturers/suspend_manufacturer_account");
+const un_suspend_manufacturer_account = require("./routes/Accounts/Admin/manufacturers/un_suspend_manufacturer_account");
 const decline_manufacturer_account = require("./routes/Accounts/Admin/manufacturers/decline_manufacturer");
 
 //sales
@@ -38,6 +41,7 @@ const approve_salesperson_account = require("./routes/Accounts/Admin/salespeople
 const get_salesperson_account = require("./routes/Accounts/Admin/salespeople/get_salesperson.js");
 const get_salesperson_accounts = require("./routes/Accounts/Admin/salespeople/get_salepeople.js");
 const suspend_salesperson_account = require("./routes/Accounts/Admin/salespeople/suspend_salesperson_account");
+const un_suspend_salesperson_account = require("./routes/Accounts/Admin/salespeople/un_suspend_salesperson_account");
 const decline_salesperson_account = require("./routes/Accounts/Admin/salespeople/decline_salesperson.js");
 
 //admin
@@ -59,11 +63,11 @@ const get_industries = require("./routes/control/get_industries.js");
 const get_technologies = require("./routes/control/get_technologies.js");
 
 /*---product---*/
-const add_product = require("./routes/product/add_product.js");
+const add_product = require("./routes/product/add_product.js");//done
 const approve_product = require("./routes/product/approve_product.js");
 const decline_product = require("./routes/product/decline_product.js");
-const get_products = require("./routes/product/get_products.js");
-const get_product = require("./routes/product/get_product.js");
+const get_products = require("./routes/product/get_products.js");//done
+const get_product = require("./routes/product/get_product.js");//done
 const delete_product = require("./routes/product/delete_product.js");
 const edit_product = require("./routes/product/edit_product.js");
 	
@@ -78,6 +82,7 @@ const edit_expert_account = require("./routes/expert_consultation/edit_expert_ac
 const create_order = require("./routes/orders/create_order.js");
 const edit_order = require("./routes/orders/edit_order.js");
 const get_orders = require("./routes/orders/get_orders.js");
+const get_order = require("./routes/orders/get_order.js");
 //const create_invoice = require("./routes/orders/create_invoice.js");
 
 /*---vacancies---*/
@@ -101,53 +106,58 @@ const get_langing_page_mailing_list = require("./routes/Support/get_landing_page
 //routes
 
 // /*--account---*/
-app.use("/api/signin",signin);
-app.use("/api/add_admin_user",add_admin_user);
-app.use("/api/get_admin_users",get_admin_users)
+app.use("/api/signin",signin);//done
+app.use("/api/add_admin_user",add_admin_user);//done
+app.use("/api/get_admin_users",get_admin_users)//done
 //client
-app.use("/api/get_client_account",get_client_account);
-app.use("/api/get_client_accounts",get_client_accounts);
-app.use("/api/suspend_client_account",suspend_client_account);
+app.use("/api/get_client_account",get_client_account);//done
+app.use("/api/get_client_accounts",get_client_accounts);//done
+app.use("/api/suspend_client_account",suspend_client_account);//done
+app.use("/api/un_suspend_client_account",un_suspend_client_account);//done
 //distributor
-app.use("/api/approve_distributor_account",approve_distributor_account);
-app.use("/api/get_distributor_account",get_distributor_account);
-app.use("/api/get_distributor_accounts",get_distributor_accounts);
-app.use("/api/suspend_distributor_account",suspend_distributor_account);
+app.use("/api/approve_distributor_account",approve_distributor_account);//done
+app.use("/api/get_distributor_account",get_distributor_account);//done
+app.use("/api/get_distributor_accounts",get_distributor_accounts);//done
+app.use("/api/suspend_distributor_account",suspend_distributor_account);//done
 app.use("/api/decline_distributor_account",decline_distributor_account);
+app.use("/api/un_suspend_distributor_account",un_suspend_distributor_account);//done
 
 //manufacturer
-app.use("/api/approve_manufacturer_account",approve_manufacturer_account);
-app.use("/api/get_manufacturer_account",get_manufacturer_account);
-app.use("/api/get_manufacturer_accounts",get_manufacturer_accounts);
-app.use("/api/suspend_manufacturer_account",suspend_manufacturer_account);
+app.use("/api/approve_manufacturer_account",approve_manufacturer_account);//done
+app.use("/api/get_manufacturer_account",get_manufacturer_account);//done
+app.use("/api/get_manufacturer_accounts",get_manufacturer_accounts);//done
+app.use("/api/suspend_manufacturer_account",suspend_manufacturer_account);//done
+app.use("/api/un_suspend_manufacturer_account",un_suspend_manufacturer_account);//done
 app.use("/api/decline_manufacturer_account",decline_manufacturer_account);
 
 //salesperson
-app.use("/api/approve_salesperson_account",approve_salesperson_account);
-app.use("/api/get_salesperson_account",get_salesperson_account);
-app.use("/api/get_salesperson_accounts",get_salesperson_accounts);
-app.use("/api/suspend_salesperson_account",suspend_salesperson_account);
+app.use("/api/approve_salesperson_account",approve_salesperson_account);//done
+app.use("/api/get_salesperson_account",get_salesperson_account);//done
+app.use("/api/get_salesperson_accounts",get_salesperson_accounts);//done
+app.use("/api/suspend_salesperson_account",suspend_salesperson_account);//done
+app.use("/api/un_suspend_salesperson_account",un_suspend_salesperson_account);//done
 app.use("/api/decline_salesperson_account",decline_salesperson_account);
 
 /*---control---*/
-app.use("/api/add_new_industry",add_new_industry);
-app.use("/api/add_new_technology",add_new_technology);
-app.use("/api/approve_suggested_industry",approve_suggested_industry);
-app.use("/api/approve_suggested_technology",approve_suggested_technology);
-app.use("/api/delete_industry",delete_industry);
-app.use("/api/edit_industry",edit_industry);
-app.use("/api/edit_technology",edit_technology);
-app.use("/api/get_industries",get_industries);
-app.use("/api/get_technologies",get_technologies);
+app.use("/api/add_new_industry",add_new_industry);//done
+app.use("/api/add_new_technology",add_new_technology);//done
+app.use("/api/approve_suggested_industry",approve_suggested_industry);//done
+app.use("/api/approve_suggested_technology",approve_suggested_technology);//done
+app.use("/api/delete_industry",delete_industry);//done
+app.use("/api/delete_technology",delete_technology);//done
+app.use("/api/edit_industry",edit_industry);//done
+app.use("/api/edit_technology",edit_technology);//done
+app.use("/api/get_industries",get_industries);//done
+app.use("/api/get_technologies",get_technologies);//done
 
 /*---product---*/
-app.use("/api/add_product",add_product);
-app.use("/api/approve_product",approve_product);
+app.use("/api/add_product",add_product);//done
+app.use("/api/approve_product",approve_product);//done 
 app.use("/api/decline_product",decline_product);
-app.use("/api/get_products",get_products);
-app.use("/api/get_product",get_product);
-app.use("/api/delete_product",delete_product);
-app.use("/api/edit_product",edit_product);
+app.use("/api/get_products",get_products);//done
+app.use("/api/get_product",get_product);//done
+app.use("/api/delete_product",delete_product);//done
+app.use("/api/edit_product",edit_product);//done
 
 /*---expert_consultaion---*/
 app.use("/api/create_expert_account",create_expert_account);
@@ -156,12 +166,11 @@ app.use("/api/get_expert_account",get_expert_account);
 app.use("/api/delete_expert_account",delete_expert_account);
 app.use("/api/edit_expert_account",edit_expert_account);
 
-
 /*---vacancies---*/
-app.use("/api/add_vacancy",add_vacancy);
-app.use("/api/delete_vacancy",delete_vacancy);
-app.use("/api/edit_vacancy",edit_vacancy);
-app.use("/api/get_vacancies",get_vacancies);
+app.use("/api/add_vacancy",add_vacancy);//done
+app.use("/api/delete_vacancy",delete_vacancy);//done
+app.use("/api/edit_vacancy",edit_vacancy);//done
+app.use("/api/get_vacancies",get_vacancies);//done
 
 /*---subcription_plan---*/
 app.use("/api/add_new_plan",add_new_plan);
@@ -174,6 +183,12 @@ app.use("/api/get_career_mailing_list",get_career_mailing_list);
 app.use("/api/get_feedbacks",get_feedbacks);
 app.use("/api/get_support_questions",get_support_questions);
 app.use("/api/get_mailing_list",get_langing_page_mailing_list);
+
+/*-----orders-----*/
+app.use("/api/get_orders",get_orders);//done
+app.use("/api/get_order",get_order);//done
+app.use("/api/edit_order",edit_order)//done
+
 /*---prokemia_hub---*/
 
 app.get('/',(req,res)=>{

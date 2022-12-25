@@ -5,7 +5,7 @@ const Distributor = require("../../../../models/Distributor/Distributor.js");
 
 let router = express.Router()
 
-router.get('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
      //get payload
      const payload  = req.body;
      //check if payload exists
@@ -16,7 +16,7 @@ router.get('/',async(req,res)=>{
 
     try{
         const distributor = await Distributor.findOne({_id:id});
-        return res.status(200).json(distributor)
+        return res.status(200).send(distributor)
     }catch(err){
         console.log(err);
         return res.status(500).send("Error while fetching distributor")

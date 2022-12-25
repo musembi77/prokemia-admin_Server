@@ -8,7 +8,8 @@ let router = express.Router()
 router.get('/',async(req,res)=>{
     try{
         const salespeople = await Sales.find();
-        return res.status(200).json(salespeople)
+        //console.log(salespeople)
+        return res.status(200).send(salespeople)
     }catch(err){
         console.log(err);
         return res.status(500).send("Error while fetching salespeople")

@@ -11,7 +11,7 @@ router.post("/",async (req,res)=>{
 		return res.send(401).send("Bad Request")
 
     const id = payload._id
-    //console.log(id)
+        console.log(id)
     
     const existing_industry = await Industry.findOne({_id:id})
     

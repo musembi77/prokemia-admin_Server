@@ -5,10 +5,11 @@ const Client = require("../../../../models/Client/Client.js");
 
 let router = express.Router()
 
-router.get('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     //get payload
-    const payload  = req.body;
+    const payload = req.body;
     //check if payload exists
+    console.log(payload)
     if (!payload)
     	return res.status(401).send('Bad request')
 

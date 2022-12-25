@@ -29,7 +29,6 @@ router.post("/",async (req,res)=>{
 			name_of_product:  			payload.name_of_product,
 			volume_of_items:			payload.volume_of_items,
 			unit_price: 				payload.unit_price,
-			salesperson_id:				payload.salesperson_id,
 			total: 						payload.total,
 			order_status: 				payload.status,
         }};

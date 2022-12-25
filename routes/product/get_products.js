@@ -8,7 +8,7 @@ router.get('/',async(req,res)=>{
         const products = await Product.find();
         //applying payload params to get results
         const response = (products?.sort((a,b)=> Number(b.sponsored) - Number(a.sponsored)));
-        return res.status(200).json(response)
+        return res.status(200).send(response)
     }catch(err){
         console.log(err);
         return res.status(500).send("Error while fetching products")

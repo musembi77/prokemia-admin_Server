@@ -5,7 +5,7 @@ const Sales = require("../../../../models/Sales/SalesPerson.js");
 
 let router = express.Router()
 
-router.get('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     //get payload
     const payload  = req.body;
     //check if payload exists
@@ -16,7 +16,7 @@ router.get('/',async(req,res)=>{
 
     try{
         const salesperson = await Sales.findOne({_id:id});
-        return res.status(200).json(salesperson)
+        return res.status(200).send(salesperson)
     }catch(err){
         console.log(err);
         return res.status(500).send("Error while fetching salespersons")

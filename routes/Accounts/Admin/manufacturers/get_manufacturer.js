@@ -5,7 +5,7 @@ const Manufacturer = require("../../../../models/Manufacturer/Manufacturer.js");
 
 let router = express.Router()
 
-router.get('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     //get payload
     const payload  = req.body;
     //check if payload exists
