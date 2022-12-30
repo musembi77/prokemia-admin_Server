@@ -15,7 +15,13 @@ router.post('/',async(req,res)=>{
 
     try{
         const order = await Order.findOne({_id:id});
-        return res.status(200).send(order)
+        const query = {_id:id};
+        const update = { $set: {
+           order_notification_status:             true,
+        }};
+        const options = { };
+        
+        await Order.updateOne( query, update, options).then((response)=>{return res.status(200).send(order)})
     }catch(err){
         console.log(err);
         return res.status(500).send("Error while fetching order")

@@ -8,7 +8,7 @@ router.post("/",async (req,res)=>{
     //get product details
     const payload = req.body;
 
-    //console.log(payload)
+    console.log(payload)
     if(!payload){
         return res.status(400).send('Bad request')
     }
@@ -35,9 +35,9 @@ router.post("/",async (req,res)=>{
 			chemical_name:  					payload.chemical_name,
 			function:							payload.function,
 			brand:								payload.brand,
-			data_sheet:							payload.data_sheet,
-			safety_data_sheet:					payload.safety_data_sheet,
-			formulation_document: 				payload.formulation_document,
+			data_sheet:							payload.data_sheet_url,
+			safety_data_sheet:					payload.safety_data_sheet_url,
+			formulation_document: 				payload.formulation_document_url,
 			features_of_product:				payload.features_of_product,
 			application_of_product:				payload.application_of_product,
 			packaging_of_product:				payload.packaging_of_product,

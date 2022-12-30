@@ -83,7 +83,7 @@ const create_order = require("./routes/orders/create_order.js");
 const edit_order = require("./routes/orders/edit_order.js");
 const get_orders = require("./routes/orders/get_orders.js");
 const get_order = require("./routes/orders/get_order.js");
-//const create_invoice = require("./routes/orders/create_invoice.js");
+const create_invoice = require("./routes/orders/create_invoice.js");
 
 /*---vacancies---*/
 const add_vacancy = require("./routes/vacancies/add_vacancy.js");
@@ -103,6 +103,8 @@ const get_feedbacks = require("./routes/Support/get_feedbacks.js");
 const get_support_questions = require("./routes/Support/get_support_questions.js");
 const get_langing_page_mailing_list = require("./routes/Support/get_landing_page_mailing_list.js");
 
+/*-----Request-----*/
+const get_requests = require("./routes/Accounts/Admin/manufacturers/get_requests");
 //routes
 
 // /*--account---*/
@@ -188,8 +190,10 @@ app.use("/api/get_mailing_list",get_langing_page_mailing_list);
 app.use("/api/get_orders",get_orders);//done
 app.use("/api/get_order",get_order);//done
 app.use("/api/edit_order",edit_order)//done
+app.use("/api/create_invoice",create_invoice)
 
 /*---prokemia_hub---*/
+app.use("/api/get_requests",get_requests);
 
 app.get('/',(req,res)=>{
 	res.send("Home")
