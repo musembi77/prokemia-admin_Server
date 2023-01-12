@@ -5,6 +5,7 @@ const ManufacturerSchema = new mongoose.Schema({
 	first_name: 			{ type:String },
 	last_name:  			{ type:String },
 	position:				{type:String},
+	profile_photo_url: 			{ type:String},
 	//company user information - tells us of the company infomation
 	email_of_company:		{type: String,unique:true}, //email of salesperson in the company
 	mobile_of_company:		{ type: String},
@@ -30,13 +31,15 @@ const ManufacturerSchema = new mongoose.Schema({
 								name: String,
 								mobile: String,
 								role:   String,
+								description:   String,
 								email: String
 							}],
 	//list of manufacturers representing
 	distributors: 			[{
 								name: String,
 								email: String,
-								mobile: String
+								mobile: String,
+								industry: String
 							}],
 	//list of categories ventured / interested in
 	industries: 			[{type: String}],

@@ -8,8 +8,6 @@ const ProductSchema = new mongoose.Schema({
 	short_on_expiry:			{ type: Boolean}, //the product needs a quick sell as it is expiring soon
 	//manufacturer information
 	manufactured_by: 			{ type: String},
-	manufactured_date: 			{ type: Date},
-	expiry_date:    			{ type: Date},
 	//seller information
 	distributed_by:				{ type: String},
 	website_link_to_Seller: 	{ type: String},

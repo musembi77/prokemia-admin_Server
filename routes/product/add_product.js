@@ -12,20 +12,21 @@ router.post("/",async(req,res)=>{
 		return res.send(401).send("Bad Request")
 
 	try{
-		//console.log(payload)
+		console.log(payload)
 		console.time("new_Product")
 		const new_Product = await Product.create({
 			name_of_product: 					payload.name_of_product,
 			manufactured_by: 					payload.manufactured_by,
 			distributed_by:						payload.distributed_by,
-			manufactured_date: 					payload.manufactured_date,
 			description_of_product:				payload.description_of_product,
 			chemical_name:  					payload.chemical_name,
 			function:							payload.function,
 			brand:								payload.brand,
+
 			data_sheet:							payload.data_sheet_url,
 			safety_data_sheet:					payload.safety_data_sheet_url,
 			formulation_document: 				payload.formulation_document_url,
+			
 			features_of_product:				payload.features_of_product,
 			application_of_product:				payload.application_of_product,
 			packaging_of_product:				payload.packaging_of_product,
@@ -36,11 +37,12 @@ router.post("/",async(req,res)=>{
 			email_of_lister: 					payload.email_of_lister,
 			short_on_expiry: 					payload.short_on_expiry,
 			listed_by_id:						payload.listed_by_id,
-			website_link_to_Seller: 			payload.website_link_to_Seller,
+			website_link_to_Seller: 			payload.website_link,
 			verification_status:				false,
 		})
+		console.log(new_Product)
 		console.timeEnd("new_Product")
-		return res.status(200).send("successfully added a new product")
+		return res.status(200).send(new_Product)
 	}catch(err){
 		console.log(err)
 		return res.status(500).send("Could not add a new product")

@@ -5,6 +5,7 @@ const SalesPersonSchema = new mongoose.Schema({
 	first_name:			{type: String},
 	last_name:			{type: String},
 	gender:				{type: String},
+	profile_photo_url: 			{ type:String},
 	//user information - tells us of the company infomation
 	email_of_salesperson:	{type: String,unique:true}, //email of salesperson in the company
 	mobile_of_salesperson:	{type: String},

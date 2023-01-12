@@ -30,7 +30,6 @@ router.post("/",async (req,res)=>{
             name_of_product: 					payload.name_of_product,
 			manufactured_by: 					payload.manufactured_by,
 			distributed_by:						payload.distributed_by,
-			manufactured_date: 					payload.manufactured_date,
 			description_of_product:				payload.description_of_product,
 			chemical_name:  					payload.chemical_name,
 			function:							payload.function,
@@ -45,6 +44,7 @@ router.post("/",async (req,res)=>{
 			industry: 							payload.industry,
 			technology: 						payload.technology,
 			short_on_expiry: 					payload.short_on_expiry,
+            email_of_lister:                    payload.email_of_lister,
 			website_link_to_Seller: 			payload.website_link_to_Seller,
         }};
         const options = { };
