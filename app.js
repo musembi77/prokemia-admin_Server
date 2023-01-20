@@ -83,7 +83,9 @@ const create_order = require("./routes/orders/create_order.js");
 const edit_order = require("./routes/orders/edit_order.js");
 const get_orders = require("./routes/orders/get_orders.js");
 const get_order = require("./routes/orders/get_order.js");
-const create_invoice = require("./routes/orders/create_invoice.js");
+const reject_order = require("./routes/orders/reject_order.js");
+const approve_order = require("./routes/orders/approve_order.js");
+const delete_order = require("./routes/orders/delete_order.js");
 
 /*---vacancies---*/
 const add_vacancy = require("./routes/vacancies/add_vacancy.js");
@@ -191,8 +193,9 @@ app.use("/api/get_mailing_list",get_langing_page_mailing_list);
 app.use("/api/get_orders",get_orders);//done
 app.use("/api/get_order",get_order);//done
 app.use("/api/edit_order",edit_order)//done
-app.use("/api/create_invoice",create_invoice)
-
+app.use("/api/reject_order",reject_order);//done
+app.use("/api/approve_order",approve_order);
+app.use("/api/delete_order",delete_order);
 
 app.use("/api/get_requests",get_requests);
 app.use("/api/complete_requests",complete_requests);
