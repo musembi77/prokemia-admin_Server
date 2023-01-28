@@ -12,13 +12,6 @@ const Distributor_Schema = new mongoose.Schema({
 	mobile_of_company:		{ type: String},
 	company_name: 			{ type: String},
 	address_of_company:		{ type: String},
-	//Key_contact_of_company
-	key_contact: 			[
-								{ 	name: String, 
-									position: String, 
-									email: String 
-								}
-							],
 	//Search-results
 	//security - logins and authentications
 	password:   			{ type: String},
@@ -47,6 +40,7 @@ const Distributor_Schema = new mongoose.Schema({
 	subscription: 			{ type: Boolean},
 	subscription_plan: 		{ type: String},
 	//verification_status
+	valid_email_status: { type: Boolean},
 	verification_status:		{ type: Boolean},
 	suspension_status:  { type: Boolean},
 	//date of joining

@@ -13,12 +13,6 @@ const ManufacturerSchema = new mongoose.Schema({
 	address_of_company:		{ type: String},
 	description:			{ type:String},
 	//Key_contact_of_company
-	key_contact: 			[
-								{ 	name: String, 
-									position: String, 
-									email: String 
-								}
-							],
 	//Search-results
 	//security - logins and authentications
 	password:   			{ type: String},
@@ -48,6 +42,7 @@ const ManufacturerSchema = new mongoose.Schema({
 	subscription: 			{ type: Boolean},
 	subscription_plan: 		{ type: String},
 	//verification_status
+	valid_email_status: { type: Boolean},
 	verification_status:		{ type: Boolean},
 	suspension_status:  { type: Boolean},
 	//date of joining

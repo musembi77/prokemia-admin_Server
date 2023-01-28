@@ -1,5 +1,6 @@
 //modules import
 const express = require("express");
+const axios = require("axios")
 
 //models imports
 const Distributor = require('../../../../models/Distributor/Distributor.js');
@@ -25,6 +26,10 @@ router.post('/',async(req,res)=>{
 	        const options = { };
 	        
 	        await Distributor.updateOne( query, update, options).then((response)=>{
+	        	const email_payload = {
+	        		email : existing_distributor.email_of_company
+	        	}
+	        	axios.post("https://prokemiaemailsmsserver-production.up.railway.app/api/suspend_account_email",email_payload)
 				return res.status(200).send("success")
 			})	
     	}catch(err){

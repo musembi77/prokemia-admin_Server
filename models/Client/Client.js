@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ClientSchema = new mongoose.Schema({
-	//account_information - about the user
+//account_information - about the user
 	first_name:			{type: String},
 	last_name:			{type: String},
 	gender:				{type: String},
@@ -22,6 +22,7 @@ const ClientSchema = new mongoose.Schema({
 	//security - logins and authentications
 	password:			{ type: String},
 	access_token: 		{ type: String},
+	valid_email_status: { type: Boolean},
 	//listing_status - check if user has listed a product
 	listing_status: 	{type: Boolean},
 	suspension_status:  { type: Boolean},
