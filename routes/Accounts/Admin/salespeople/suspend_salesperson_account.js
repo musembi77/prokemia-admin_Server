@@ -29,7 +29,7 @@ router.post('/',async(req,res)=>{
 	        	const email_payload = {
 	        		email : existing_salesperson.email_of_salesperson
 	        	}
-	        	axios.post("http://localhost:5001/api/suspend_account_email",email_payload)
+	        	axios.post("https://prokemiaemailsmsserver-production.up.railway.app/api/suspend_account_email",email_payload)
 				return res.status(200).send("success")
 			})	
     	}catch(err){

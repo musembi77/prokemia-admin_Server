@@ -1,6 +1,6 @@
 //modules import
 const express = require("express");
-
+const axios = require('axios')
 //models imports
 const Sales = require('../../../../models/Sales/SalesPerson.js');
 
@@ -25,6 +25,10 @@ router.post('/',async(req,res)=>{
 	        const options = { };
 	        
 	        await Sales.updateOne( query, update, options).then((response)=>{
+				const email_payload = {
+	        		email : existing_salesperson.email_of_salesperson
+	        	}
+	        	axios.post("https://prokemiaemailsmsserver-production.up.railway.app/api/reactivate_account_email",email_payload)
 				return res.status(200).send("success")
 			})	
     	}catch(err){

@@ -26,7 +26,7 @@ router.post('/',async (req,res,next)=>{
 
     const existing_admin = await Admin.findOne({user_name:user_name})
 
-    if (!existing_admin)
+    if (!existing_admin){
         try{
             const token = jwt.sign(
                 {user_name},
@@ -52,7 +52,9 @@ router.post('/',async (req,res,next)=>{
             console.log(err)
             res.status(201).send('Could not create new admin-user at the moment, try again')
         }
-    return res.status(201).send("account already exists")
+    }else{
+        return res.status(201).send("account already exists")
+    }
 });
 
 module.exports = router

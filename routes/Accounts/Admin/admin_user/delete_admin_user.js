@@ -1,12 +1,13 @@
 //modules imports
 const express = require('express');
 //models imports
-const Admin = require('../../../models/Admin/Admin.js');
+const Admin = require('../../../../models/Admin/Admin.js');
 
 const router = express.Router();
 
 router.post('/',async(req,res)=>{
 	const payload = req.body; 
+	console.log(payload)
 
 	if (!payload)
 		return res.status(400).send("Bad Request")

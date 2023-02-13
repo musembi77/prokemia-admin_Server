@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
 const Distributor_Schema = new mongoose.Schema({
+	//contact person
+	contact_person_name: 	{ type: String},
+	contact_mobile: 		{ type: String},
+	contact_email: 			{ type: String},
 	//account information
-	first_name: 			{ type:String },
-	last_name:  			{ type:String },
-	position:				{type:String},
 	profile_photo_url: 			{ type:String},
 	//company user information - tells us of the company infomation
 	description:			{ type:String},
@@ -33,9 +34,6 @@ const Distributor_Schema = new mongoose.Schema({
 								email: String,
 								mobile: String
 							}],
-	//list of categories ventured / interested in
-	industries: 			[{type: String}],
-	technologies:			[{type: String}],
 	//subscription information
 	subscription: 			{ type: Boolean},
 	subscription_plan: 		{ type: String},

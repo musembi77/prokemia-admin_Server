@@ -23,6 +23,7 @@ router.post("/",async (req,res)=>{
         const update = { $set: {
 			title:			            payload.title,
 			cover_image: 	            payload.cover_image,
+            description:        payload.description,
 			verification_status: 		payload.verification_status,
         }};
         const options = { };

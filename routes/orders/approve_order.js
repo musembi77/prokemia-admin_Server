@@ -24,7 +24,7 @@ router.post("/",async (req,res)=>{
     try{
         const query = {_id:id};
         const update = { $set: {
-			order_status: 				"pending",
+			order_status: 				"completed",
         }};
         const options = { };
         
