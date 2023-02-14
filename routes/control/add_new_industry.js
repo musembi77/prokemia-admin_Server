@@ -13,13 +13,14 @@ router.post("/",async(req,res)=>{
 	try{
 		const new_Industry = await Industry.create({
 			title:						payload.title,
+			description: 				payload.description,
 			cover_image: 				payload.cover_image,
 			verification_status:			true, 
 		})
 		return res.status(200).send("successfully added a new industry")
 	}catch(err){
 		console.log(err)
-		return res.status(500).send("Could not add a new industry,try agarin in a few minutes")
+		return res.status(500).send("Could not add a new industry,try again in a few minutes")
 	}
 })
 

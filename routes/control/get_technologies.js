@@ -9,6 +9,7 @@ router.get('/',async(req,res)=>{
         return res.status(200).json(technologies)
     }catch(err){
         console.log(err);
+        return res.status(500).send('Could not fetch technologies data')
     }
 })
 

@@ -13,6 +13,7 @@ router.post("/",async(req,res)=>{
 	try{
 		const new_Technology= await Technology.create({
 			title:					payload.title,
+			description: 				payload.description,
 			cover_image: 			payload.cover_image,
 			verification_status: 	true,
 		})

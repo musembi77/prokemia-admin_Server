@@ -49,8 +49,7 @@ router.post('/',async (req,res,next)=>{
             //console.log(new_Admin)
             return res.status(200)
         }catch(err){
-            console.log(err)
-            res.status(201).send('Could not create new admin-user at the moment, try again')
+            return res.status(201).send('Could not create new admin-user at the moment, try again')
         }
     }else{
         return res.status(201).send("account already exists")
