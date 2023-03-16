@@ -51,6 +51,7 @@ const add_admin_user = require("./routes/Accounts/Admin/admin_user/add_admin_use
 const delete_admin_user = require("./routes/Accounts/Admin/admin_user/delete_admin_user.js");
 const edit_admin_user = require("./routes/Accounts/Admin/admin_user/edit_admin_user.js");
 const get_admin_users = require("./routes/Accounts/Admin/admin_user/get_admin_users.js");
+const get_admin_user = require("./routes/Accounts/Admin/admin_user/get_admin_user.js");
 
 /*---control---*/
 const add_new_industry = require("./routes/control/add_new_industry.js");
@@ -116,6 +117,8 @@ const complete_requests = require("./routes/Accounts/Admin/manufacturers/complet
 app.use("/api/signin",signin);//done
 app.use("/api/add_admin_user",add_admin_user);//done
 app.use("/api/get_admin_users",get_admin_users)//done
+app.use("/api/get_admin_user",get_admin_user)//done
+app.use("/api/edit_admin_user",edit_admin_user)//done
 app.use("/api/delete_admin_user",delete_admin_user);
 //client
 app.use("/api/get_client_account",get_client_account);//done

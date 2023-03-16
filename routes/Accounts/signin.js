@@ -21,14 +21,15 @@ router.post('/',async(req,res,next)=>{
 		return res.status(201).send("Contact admin, as your account does not exist")
 	
 	try{
-		const compare = bcrypt.compareSync(payload.user_password,admin_result.user_password)
+		const compare = bcrypt.compareSync(payload.user_password,admin_result?.user_password)
 		console.log(compare)
 		if(compare){
-			const id = admin_result._id
-			const user_name = admin_result.user_name
+			const id = admin_result?._id
+			const user_name = admin_result?.user_name
+			const role = admin_result?.role
 
 			const token = jwt.sign(
-				{user_name,id},
+				{user_name,id,role},
 				process.env.TOKEN_ADMIN_KEY,
 				{
 					expiresIn: '24'

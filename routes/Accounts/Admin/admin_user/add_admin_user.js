@@ -10,10 +10,15 @@ let router = express.Router()
 
 router.post('/',async (req,res,next)=>{
     const payload = req.body;
-    console.log(payload.user_name)
+    //console.log(payload.user_name)
     //check if all params are available
     if(!payload){
         return  res.status(201).send('Bad Request');
+    }
+    //check if an admin user is authorised
+    const allowed_scope_roles = ['IT','Manager']
+    if (!allowed_scope_roles.includes(payload.auth_role)){
+        return res.status(401).send("You are not assigned the role to create users, kindly contact the Administrator")
     }
 
     if(payload.admin_password !== 'admin-test'){
@@ -35,7 +40,7 @@ router.post('/',async (req,res,next)=>{
                     expiresIn: '2d'
                 }
             )
-            //console.log(token)
+            ////console.log(token)
             const new_Admin = await Admin.create({
                 user_name:		        payload.user_name,
     			role:			        payload.role,
@@ -46,8 +51,8 @@ router.post('/',async (req,res,next)=>{
                 hub_access_status: 		false,
     			hub_account_id: 		'',
             })
-            //console.log(new_Admin)
-            return res.status(200)
+            ////console.log(new_Admin)
+            return res.status(200).send('successfully added a new admin account.')
         }catch(err){
             return res.status(201).send('Could not create new admin-user at the moment, try again')
         }

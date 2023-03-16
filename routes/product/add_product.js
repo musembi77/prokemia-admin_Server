@@ -11,6 +11,11 @@ router.post("/",async(req,res)=>{
 	if (!payload)
 		return res.send(401).send("Bad Request")
 
+	const allowed_scope_roles = ['IT','Manager',"Sales"]
+	if (!allowed_scope_roles.includes(payload.auth_role)){
+	    return res.status(401).send("You are not assigned the role to add a new product, kindly contact the Support")
+	}
+
 	const title = payload.name_of_product
 	const existing_product = await Product.findOne({name_of_product:title})
 	

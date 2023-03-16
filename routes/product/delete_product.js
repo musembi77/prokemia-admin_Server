@@ -13,6 +13,11 @@ router.post("/",async (req,res)=>{
     }
     
     const id = payload._id
+
+    const allowed_scope_roles = ['IT','Manager',"Sales"]
+    if (!allowed_scope_roles.includes(payload.auth_role)){
+        return res.status(401).send("You are not assigned the role to delete this product, kindly contact the Support")
+    }
     
     try{
         const product = await Product.findOne({_id:id});

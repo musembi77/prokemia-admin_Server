@@ -11,8 +11,14 @@ router.post('/',async(req,res)=>{
 	const payload = req.body; 
 
 	//check if payload exists
-	if (!payload)
+	if (!payload){
 		return res.status(400).send("Bad Request")
+	}
+
+	const allowed_scope_roles = ['IT','Manager','Supervisor','Sales']
+    if (!allowed_scope_roles.includes(payload.auth_role)){
+        return res.status(401).send("You are not assigned the role to suspend accounts, kindly contact the Administrator")
+    }
 
 	const id = payload._id //use id to find existing user account
 

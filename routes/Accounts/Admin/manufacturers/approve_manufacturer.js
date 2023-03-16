@@ -13,6 +13,12 @@ router.post('/',async (req,res,next)=>{
     if(!payload){
         return  res.status(401).send('Bad Request'); 
     }
+
+    const allowed_scope_roles = ['IT','Manager','Supervisor']
+    if (!allowed_scope_roles.includes(payload.auth_role)){
+        return res.status(401).send("You are not assigned the role to approve this account, kindly contact Support")
+    }
+    
 	const id = payload._id //use id to find existing user account
 	const existing_manufacturer = await Manufacturer.findOne({_id:id});
 

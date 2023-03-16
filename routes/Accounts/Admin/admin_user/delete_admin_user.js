@@ -9,8 +9,14 @@ router.post('/',async(req,res)=>{
 	const payload = req.body; 
 	console.log(payload)
 
-	if (!payload)
-		return res.status(400).send("Bad Request")
+	if (!payload){
+			return res.status(400).send("Bad Request")
+	}
+
+	const allowed_scope_roles = ['IT','Manager']
+    if (!allowed_scope_roles.includes(payload.auth_role)){
+        return res.status(401).send("You are not assigned the role to remove users, kindly contact the Administrator")
+    }
 
 	const id = payload._id
 

@@ -12,6 +12,12 @@ router.post("/",async (req,res)=>{
     if(!payload){
         return res.send(400).send("Bad Request")
     }
+
+    const allowed_scope_roles = ['IT','Manager','Supervisor','Sales']
+    if (!allowed_scope_roles.includes(payload.auth_role)){
+        return res.status(401).send("You are not assigned the role to delete orders, kindly contact the Administrator")
+    }
+
     let id = payload._id //use id to find existing user
     try{
        const existing_order = await Order.findOne({_id:id})
