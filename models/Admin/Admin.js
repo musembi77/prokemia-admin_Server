@@ -4,6 +4,7 @@ const AdminSchema = new mongoose.Schema({
 	//user info
 	user_name:		{ type: String},
 	user_image: 	{ type: String},
+	user_email:     {type : String},
 	//user role
 	role:			{ type: String},
 	//security

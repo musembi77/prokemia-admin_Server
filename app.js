@@ -73,6 +73,8 @@ const get_products = require("./routes/product/get_products.js");//done
 const get_product = require("./routes/product/get_product.js");//done
 const delete_product = require("./routes/product/delete_product.js");
 const edit_product = require("./routes/product/edit_product.js");
+const feature_product = require("./routes/product/feature_product.js");
+const un_feature_product = require("./routes/product/un_feature_product.js");
 	
 /*---expert_consultaion---*/
 const get_expert_accounts = require("./routes/expert_consultation/get_expert_accounts.js");
@@ -171,6 +173,8 @@ app.use("/api/get_products",get_products);//done
 app.use("/api/get_product",get_product);//done
 app.use("/api/delete_product",delete_product);//done
 app.use("/api/edit_product",edit_product);//done
+app.use("/api/feature_product",feature_product);//done
+app.use("/api/un_feature_product",un_feature_product);//done
 
 /*---expert_consultaion---*/
 app.use("/api/create_expert_account",create_expert_account);

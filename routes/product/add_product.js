@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.post("/",async(req,res)=>{
 	const payload = req.body;
+	console.log(payload)
 	
 	if (!payload)
 		return res.send(401).send("Bad Request")
@@ -51,7 +52,8 @@ router.post("/",async(req,res)=>{
 				verification_status:				false,
 			})
 			console.timeEnd("new_Product")
-			return res.status(200).send("successfully added a new product")
+			console.log(new_Product)
+			return res.status(200).send(new_Product)
 		}catch(err){
 			console.log(err)
 			return res.status(500).send("Could not add a new product")
