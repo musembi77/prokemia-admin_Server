@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 let origins = ['https://prokemia-admin-web.vercel.app','https://prokemia-admin-web-musembi77.vercel.app','http://localhost:3000','http://admin.prokemia.com/','https://admin.prokemia.com/'];
-app.use(cors({credentials:true, origin: origins}));
+app.use(cors({credentials:true, origin: "*"}));
 //imports
 
 /*--accounts---*/
