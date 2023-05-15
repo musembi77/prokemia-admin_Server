@@ -16,7 +16,7 @@ router.post('/',async(req,res)=>{
 
 	const existing_Request = await Requests.findOne({_id:id}) //checks if a request already exists
 
-    console.log(existing_Request)
+    //console.log(existing_Request)
 
 	if (existing_Request != null)
 		try{

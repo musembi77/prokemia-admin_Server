@@ -9,7 +9,7 @@ router.post('/',async(req,res)=>{
     //get payload
     const payload = req.body;
     //check if payload exists
-    console.log(payload)
+    //console.log(payload)
     if (!payload)
     	return res.status(401).send('Bad request')
 

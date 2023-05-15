@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post('/',async(req,res,next)=>{
 	const payload = req.body; //gets payload
-	console.log(payload);
+	//console.log(payload);
 
 	if (!payload)
 		return res.status(201).send("Bad Request, no payload found")
@@ -18,11 +18,11 @@ router.post('/',async(req,res,next)=>{
 	const admin_result = await Admin.findOne({user_name:payload.user_name});
 	
 	if (!admin_result)
-		return res.status(201).send("Contact admin, as your account does not exist")
+		return res.status(201).send("Wrong user log in credentials")
 	
 	try{
 		const compare = bcrypt.compareSync(payload.user_password,admin_result?.user_password)
-		console.log(compare)
+		//console.log(compare)
 		if(compare){
 			const id = admin_result?._id
 			const user_name = admin_result?.user_name
@@ -46,7 +46,7 @@ router.post('/',async(req,res,next)=>{
 				return res.status(200).send(token)
 			})
 		}else{
-			return res.status(201).send("wrong credentials, try again");	
+			return res.status(201).send("wrong user log in credentials, try again");	
 		}
 	}catch(err){
 		console.log(err)

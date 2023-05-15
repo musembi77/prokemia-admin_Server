@@ -52,7 +52,7 @@ router.post("/",async(req,res)=>{
 				verification_status:				false,
 			})
 			console.timeEnd("new_Product")
-			console.log(new_Product)
+			//console.log(new_Product)
 			return res.status(200).send(new_Product)
 		}catch(err){
 			console.log(err)
