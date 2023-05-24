@@ -19,13 +19,13 @@ router.post('/',async(req,res)=>{
 	//check if an admin user is authorised
 	const verify_role_payload = {
 		task:'distributors',
-		sub_task: 'subscribe',
+		sub_task: 'un_subscribe',
 		role: payload.auth_role
 	}
 	const verified_result = await Role_Verifier(verify_role_payload);
 	//console.log(verified_result)
 	if (!verified_result){
-		return res.status(401).send("You are not authorized to subscribe this distributor, kindly contact the administrator or support for any issues");
+		return res.status(401).send("You are not authorized to un-subscribe this distributor, kindly contact the administrator or support for any issues");
 	}else{
 		const id = payload._id //use id to find existing user account
 	
@@ -35,7 +35,7 @@ router.post('/',async(req,res)=>{
 			try{
 				const query = {_id:id};
 				const update = { $set: {
-					subscription:    true,
+					subscription:    false,
 				}};
 				const options = { };
 				
@@ -44,7 +44,7 @@ router.post('/',async(req,res)=>{
 				})
 			}catch(err){
 				console.log(err)
-				return res.status(500).send("could not subscribe this profile at the moment");
+				return res.status(500).send("could not un-subscribe this profile at the moment");
 			}
 		else{
 			return res.status(500).send("could not find this account, it may have been deleted or it doesnt exist");

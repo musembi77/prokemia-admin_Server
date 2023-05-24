@@ -2,6 +2,8 @@
 const express = require('express');
 //models imports
 const Admin = require('../../../../models/Admin/Admin.js');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
@@ -12,6 +14,8 @@ router.post('/',async(req,res)=>{
 		return res.status(400).send("Bad Request")
 
 	const id = payload._id
+    const salt = bcrypt.genSaltSync(10);
+    const encrypted_password = bcrypt.hashSync(payload?.user_password, salt);
 
 	const existing_admin = await Admin.findOne({_id:id})
 	//console.log(existing_admin)
@@ -19,17 +23,8 @@ router.post('/',async(req,res)=>{
 		try{
 	        const query = {_id:id};
 	        const update = { $set: {
-				user_name:		        payload?.user_name,
-                user_image: 	        payload?.user_image,
-                user_email:             payload?.user_email,
-                user_mobile:            payload?.user_mobile,
-                //user role
-                role:			        payload.role,
                 //security
-                user_password:          payload?.user_password,
-                login_status:	        payload?.login_status,
-                hub_access_status: 	    payload?.hub_access_status,
-                hub_account_id: 	    payload?.hub_account_id,
+                user_password:          encrypted_password,
 	        }};
 	        const options = { };
 	        
@@ -40,7 +35,7 @@ router.post('/',async(req,res)=>{
 			})
 	    }catch(err){
 	    	console.log(err)
-	        return res.status(500).send("Could not edit this account, try again in a few minutes");
+	        return res.status(500).send("Could not edit this password, try again in a few minutes");
 	    }
 	else{
 		return res.status(500).send("could not find this account at the moment");

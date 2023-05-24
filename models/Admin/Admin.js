@@ -5,6 +5,7 @@ const AdminSchema = new mongoose.Schema({
 	user_name:		{ type: String},
 	user_image: 	{ type: String},
 	user_email:     {type : String},
+	user_mobile:     {type : String},
 	//user role
 	role:			{ type: String},
 	//security
@@ -13,6 +14,7 @@ const AdminSchema = new mongoose.Schema({
 	login_status:	{ type: Boolean},
 	hub_access_status: 	{type: Boolean},
 	hub_account_id: 	{type: String},
+	suspension_status:  {type: Boolean},
 	//date
 	createdAt:		{ type: Date,default: Date.now},
 },{timestamps:true})
