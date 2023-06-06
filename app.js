@@ -125,6 +125,7 @@ const get_langing_page_mailing_list = require("./routes/Support/get_landing_page
 /*-----Request-----*/
 const get_requests = require("./routes/Accounts/Admin/manufacturers/get_requests");
 const complete_requests = require("./routes/Accounts/Admin/manufacturers/complete_request");
+const delete_request = require("./routes/Accounts/Admin/manufacturers/delete_request");
 //routes
 
 // /*--account---*/
@@ -235,6 +236,7 @@ app.use("/api/delete_order",delete_order);//done
 
 app.use("/api/get_requests",get_requests);
 app.use("/api/complete_requests",complete_requests);
+app.use("/api/delete_request",delete_request);
 
 app.get('/',(req,res)=>{
 	res.send("<html> <head>server Response</head><body><h1> This page was render directly from the server <p>Hello there welcome to Prokemia</p></h1></body></html>")

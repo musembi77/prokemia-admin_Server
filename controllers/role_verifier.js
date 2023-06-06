@@ -59,6 +59,9 @@ const Verifier=async(verify_role_payload)=>{
         case "orders":
             res = Handle_Orders_scopes(role_data,verify_role_payload)
                 return res
+        case "requests":
+            res = Handle_Requests_scopes(role_data,verify_role_payload)
+                return res
         default:
           return false;   
       }
@@ -449,6 +452,28 @@ const Handle_Orders_scopes=(role_data,verify_role_payload)=>{
             }
         case "reject":
             result = role_data?.orders_scopes?.find((scope)=> scope == 'reject')
+            if (result){
+                return true;
+            }else{
+                return false;
+            }
+        default:
+          return false;   
+      }
+}
+
+const Handle_Requests_scopes=(role_data,verify_role_payload)=>{
+    let result;
+    switch (verify_role_payload.sub_task) {
+        case "approve":
+            result = role_data?.manufacturer_request_scopes?.find((scope)=> scope == 'approve')
+            if (result){
+                return true;
+            }else{
+                return false;
+            }
+        case "decline":
+            result = role_data?.manufacturer_request_scopes?.find((scope)=> scope == 'decline')
             if (result){
                 return true;
             }else{
