@@ -9,8 +9,7 @@ app.use(express.json())
 let origins = ['https://prokemia-admin-web.vercel.app',
 				'https://prokemia-admin-web-musembi77.vercel.app',
 				'http://localhost:3000',
-				'http://admin.prokemia.com/',
-				'https://admin-frontend-pi.vercel.app/',
+				'https://admin-frontend-pi.vercel.app',
 				'https://admin.prokemia.com/'];
 app.use(cors({credentials:true, origin: origins}));
 //imports
