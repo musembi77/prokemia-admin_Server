@@ -11,7 +11,7 @@ let origins = ['https://prokemia-admin-web.vercel.app',
 				'http://localhost:3000',
 				'https://admin-frontend-pi.vercel.app',
 				'https://admin.prokemia.com/'];
-app.use(cors({credentials:true, origin: origins}));
+app.use(cors({credentials:true, origin: '*'}));
 //imports
 
 /*--accounts---*/
