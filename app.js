@@ -14,6 +14,8 @@ let origins = ['https://prokemia-admin-web.vercel.app',
 app.use(cors({credentials:true, origin: '*'}));
 //imports
 
+const notifications = require('./routes/control/notifications.js')
+app.use('/api/notifications',notifications);
 /*--accounts---*/
 const signin = require("./routes/Accounts/signin.js");
 //const signin = require("./routes/Accounts/signin.js");
